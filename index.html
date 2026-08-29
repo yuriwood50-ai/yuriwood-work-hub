@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>유리나무 작업 허브 · YURIWOOD WORK HUB</title>
+  <meta name="description" content="자주 사용하는 웹사이트를 카테고리별로 모아 바로 이동할 수 있는 개인 작업 허브." />
+  <meta name="color-scheme" content="light" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    onerror="this.remove()"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23151719'/%3E%3Ctext x='16' y='21' font-family='Helvetica,Arial' font-size='14' font-weight='600' fill='%23F4F1EB' text-anchor='middle'%3EYW%3C/text%3E%3C/svg%3E"
+  />
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <!-- 왼쪽 브랜드 레일 (모바일에서는 상단 가로 헤더) -->
+  <header class="rail" aria-label="사이트 브랜드">
+    <span class="rail__mark" aria-hidden="true">YW</span>
+    <p class="rail__name">YURIWOOD WORK HUB</p>
+  </header>
+
+  <div class="shell">
+    <main class="main" id="main">
+      <!-- 상단 헤더 -->
+      <section class="masthead" aria-labelledby="masthead-title">
+        <div class="masthead__text">
+          <p class="eyebrow">PERSONAL WORKSPACE / 2026</p>
+          <h1 class="masthead__title" id="masthead-title">
+            오늘의 작업을<br />가볍게 시작하세요.
+          </h1>
+        </div>
+        <p class="masthead__date">
+          <time id="today" datetime="">&nbsp;</time>
+        </p>
+      </section>
+
+      <!-- 빠른 실행 -->
+      <nav class="quick" aria-labelledby="quick-title">
+        <h2 class="section-label" id="quick-title">QUICK ACCESS</h2>
+        <ul class="quick__list" id="quick-list"></ul>
+      </nav>
+
+      <!-- 카테고리 카드 그리드 -->
+      <section class="board" aria-labelledby="board-title">
+        <h2 class="section-label" id="board-title">CATEGORIES</h2>
+        <div class="grid" id="grid"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p class="foot__brand">YURIWOOD · CREATIVE WORKSPACE</p>
+      <p class="foot__meta" id="foot-count"></p>
+    </footer>
+  </div>
+
+  <noscript>
+    <p class="noscript">이 페이지는 링크 목록을 JavaScript로 생성합니다. 브라우저에서 JavaScript를 켜주세요.</p>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
