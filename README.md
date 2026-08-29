@@ -18,8 +18,11 @@ HTML · CSS · 순수 JavaScript로만 만든 정적 페이지이며, 프레임�
 ├─ index.html   # 페이지 뼈대 (사이드바, 상단바, 본문, 푸터)
 ├─ styles.css   # 스위스 스타일 에디토리얼 디자인 및 반응형
 ├─ script.js    # 사이트 데이터 + 메뉴/카드 렌더링 + 날짜·집계 + 드로어
+├─ DESIGN.md    # 디자인 기준 (Airy Cobalt Editorial 색상·레이아웃 규칙)
 └─ README.md
 ```
+
+UI를 수정할 때는 색상·여백·타이포그래피 기준을 `DESIGN.md`에 맞춥니다.
 
 ## 로컬 실행 방법
 

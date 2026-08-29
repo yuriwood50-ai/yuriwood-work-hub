@@ -1,16 +1,27 @@
 /* =========================================================
    유리나무 작업 허브 · YURIWOOD WORK HUB
    Swiss-style minimalist editorial dashboard UI
+   색상 시스템: Airy Cobalt Editorial (기준 문서: DESIGN.md)
    ========================================================= */
 
 :root {
-  --bg: #f4f1eb;
-  --card: #fffdfa;
-  --ink: #151719;
-  --ink-soft: #686b70;
-  --line: #dedad2;
-  --blue: #4e5ef7;
-  --blue-soft: #e5e9ff;
+  /* 확정 팔레트 */
+  --bg: #f4f7fb; /* 전체 배경 (블루그레이) */
+  --card: #ffffff; /* 카드·콘텐츠 패널 */
+  --ink: #18202c; /* 기본 글자 */
+  --ink-soft: #687386; /* 보조 글자 */
+  --line: #dce2ec; /* 구분선·카드 테두리 */
+  --blue: #5367d9; /* 포인트 코발트 */
+  --blue-soft: #e8ecff; /* 선택·호버 배경 */
+
+  /* 딥 네이비 사이드바 위에서 대비를 확보하기 위한 파생값 */
+  --sidebar-bg: #182033;
+  --sidebar-ink: #ffffff; /* 사이드바 기본 글자 */
+  --sidebar-ink-mid: #c6cddb; /* 하위 메뉴 글자 */
+  --sidebar-ink-soft: #a3aec2; /* 사이드바 보조 글자·숫자 */
+  --sidebar-line: rgba(255, 255, 255, 0.14);
+  --sidebar-hover: rgba(232, 236, 255, 0.12);
+  --scrim: rgba(24, 32, 44, 0.42);
 
   --sidebar-w: 288px;
   --radius: 16px;
@@ -127,8 +138,9 @@ button {
   position: fixed;
   inset: 0 auto 0 0;
   width: var(--sidebar-w);
-  background: var(--card);
-  border-right: 1px solid var(--line);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-ink);
+  border-right: 1px solid var(--sidebar-bg);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -138,7 +150,7 @@ button {
 
 .brand {
   padding: clamp(26px, 3vw, 34px) 26px clamp(22px, 2.6vw, 28px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--sidebar-line);
 }
 
 .brand__mark {
@@ -146,8 +158,8 @@ button {
   place-items: center;
   width: 38px;
   height: 38px;
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--card);
+  color: var(--sidebar-bg);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -160,13 +172,14 @@ button {
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.35;
+  color: var(--sidebar-ink);
 }
 
 .brand__en {
   margin-top: 5px;
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: var(--ink-soft);
+  color: var(--sidebar-ink-soft);
 }
 
 /* ---------- 메뉴 ---------- */
@@ -188,6 +201,7 @@ button {
   padding: 10px 12px;
   border-radius: 10px;
   text-align: left;
+  color: var(--sidebar-ink);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -201,21 +215,21 @@ button {
 .nav__count {
   font-size: 11px;
   letter-spacing: 0.12em;
-  color: var(--ink-soft);
+  color: var(--sidebar-ink-soft);
 }
 
 .nav__chevron {
   flex: none;
   width: 8px;
   height: 8px;
-  border-right: 1.5px solid var(--ink-soft);
-  border-bottom: 1.5px solid var(--ink-soft);
+  border-right: 1.5px solid var(--sidebar-ink-soft);
+  border-bottom: 1.5px solid var(--sidebar-ink-soft);
   transform: rotate(45deg) translate(-2px, -2px);
   transition: transform 0.18s ease, border-color 0.15s ease;
 }
 
 .nav__top:hover {
-  background: rgba(21, 23, 25, 0.04);
+  background: var(--sidebar-hover);
 }
 
 .nav__top.is-open .nav__chevron {
@@ -236,7 +250,7 @@ button {
 .nav__sub {
   margin: 2px 0 8px;
   padding-left: 12px;
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--sidebar-line);
 }
 
 .nav__item {
@@ -248,7 +262,7 @@ button {
   padding: 8px 12px;
   border-radius: 8px;
   text-align: left;
-  color: var(--ink-soft);
+  color: var(--sidebar-ink-mid);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -267,14 +281,15 @@ button {
 }
 
 .nav__item:hover {
-  background: rgba(78, 94, 247, 0.07);
-  color: var(--blue);
+  background: var(--sidebar-hover);
+  color: var(--sidebar-ink);
 }
 
-.nav__item.is-active {
+.nav__item.is-active,
+.nav__item.is-active:hover {
   color: var(--blue);
   font-weight: 500;
-  background: rgba(78, 94, 247, 0.09);
+  background: var(--blue-soft);
 }
 
 /* ---------- 상단 바 ---------- */
@@ -498,7 +513,7 @@ button {
 
 .site:hover {
   background: var(--blue-soft);
-  border-color: #cdd4fb;
+  border-color: var(--blue);
 }
 
 .site:hover .site__go,
@@ -570,7 +585,7 @@ button {
     position: fixed;
     inset: 0;
     z-index: 35;
-    background: rgba(21, 23, 25, 0.34);
+    background: var(--scrim);
   }
 
   .scrim[hidden] {
