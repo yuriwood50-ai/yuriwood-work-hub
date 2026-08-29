@@ -21,48 +21,66 @@
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 
-  <!-- 왼쪽 브랜드 레일 (모바일에서는 상단 가로 헤더) -->
-  <header class="rail" aria-label="사이트 브랜드">
-    <span class="rail__mark" aria-hidden="true">YW</span>
-    <p class="rail__name">YURIWOOD WORK HUB</p>
-  </header>
+  <div class="layout">
+    <!-- 왼쪽 고정 사이드바 (모바일에서는 드로어) -->
+    <aside class="sidebar" id="sidebar" aria-label="사이트 메뉴">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">YW</span>
+        <p class="brand__ko">유리나무 작업 허브</p>
+        <p class="brand__en">YURIWOOD WORK HUB</p>
+      </div>
+      <nav class="nav" id="nav" aria-label="카테고리 메뉴"></nav>
+    </aside>
 
-  <div class="shell">
-    <main class="main" id="main">
-      <!-- 상단 헤더 -->
-      <section class="masthead" aria-labelledby="masthead-title">
-        <div class="masthead__text">
+    <div class="scrim" id="scrim" hidden></div>
+
+    <div class="content">
+      <header class="topbar">
+        <button
+          class="hamburger"
+          id="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sidebar"
+        >
+          <span class="hamburger__bars" aria-hidden="true"></span>
+          <span class="hamburger__text">메뉴</span>
+        </button>
+
+        <nav class="crumb" aria-label="현재 위치">
+          <ol class="crumb__list" id="breadcrumb"></ol>
+        </nav>
+
+        <p class="topbar__date">
+          <time id="today" datetime="">&nbsp;</time>
+        </p>
+      </header>
+
+      <main class="main" id="main" tabindex="-1">
+        <section class="masthead" aria-labelledby="masthead-title">
           <p class="eyebrow">PERSONAL WORKSPACE / 2026</p>
           <h1 class="masthead__title" id="masthead-title">
             오늘의 작업을<br />가볍게 시작하세요.
           </h1>
-        </div>
-        <p class="masthead__date">
-          <time id="today" datetime="">&nbsp;</time>
-        </p>
-      </section>
+          <p class="masthead__meta">
+            <span class="masthead__view" id="current-view"></span>
+            <span class="masthead__sep" aria-hidden="true">·</span>
+            <span class="masthead__count" id="current-count"></span>
+          </p>
+        </section>
 
-      <!-- 빠른 실행 -->
-      <nav class="quick" aria-labelledby="quick-title">
-        <h2 class="section-label" id="quick-title">QUICK ACCESS</h2>
-        <ul class="quick__list" id="quick-list"></ul>
-      </nav>
+        <div id="view" aria-live="polite"></div>
+      </main>
 
-      <!-- 카테고리 카드 그리드 -->
-      <section class="board" aria-labelledby="board-title">
-        <h2 class="section-label" id="board-title">CATEGORIES</h2>
-        <div class="grid" id="grid"></div>
-      </section>
-    </main>
-
-    <footer class="foot">
-      <p class="foot__brand">YURIWOOD · CREATIVE WORKSPACE</p>
-      <p class="foot__meta" id="foot-count"></p>
-    </footer>
+      <footer class="foot">
+        <p class="foot__brand">YURIWOOD · CREATIVE WORKSPACE</p>
+        <p class="foot__meta" id="foot-count"></p>
+      </footer>
+    </div>
   </div>
 
   <noscript>
-    <p class="noscript">이 페이지는 링크 목록을 JavaScript로 생성합니다. 브라우저에서 JavaScript를 켜주세요.</p>
+    <p class="noscript">이 페이지는 메뉴와 링크 목록을 JavaScript로 생성합니다. 브라우저에서 JavaScript를 켜주세요.</p>
   </noscript>
 
   <script src="script.js" defer></script>
