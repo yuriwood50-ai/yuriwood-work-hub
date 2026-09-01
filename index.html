@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>유리나무 작업 허브 · YURIWOOD WORK HUB</title>
-  <meta name="description" content="자주 사용하는 웹사이트를 카테고리별로 모아 바로 이동할 수 있는 개인 작업 허브." />
+  <meta name="description" content="AI·개발·디자인·수업·사업·업무 6개 카테고리로 정리한 65개 작업 사이트를 검색하고 바로 여는 개인 작업 허브." />
   <meta name="color-scheme" content="light" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link
@@ -47,9 +47,24 @@
           <span class="hamburger__text">메뉴</span>
         </button>
 
-        <nav class="crumb" aria-label="현재 위치">
-          <ol class="crumb__list" id="breadcrumb"></ol>
-        </nav>
+        <form class="search" id="search-form" role="search" aria-label="사이트 통합 검색">
+          <label class="search__label" for="search-input">사이트 검색</label>
+          <div class="search__field">
+            <span class="search__icon" aria-hidden="true"></span>
+            <input
+              class="search__input"
+              id="search-input"
+              type="search"
+              name="q"
+              placeholder="사이트, 카테고리, 태그 검색"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="search__clear" id="search-clear" type="button" aria-label="검색어 지우기" hidden>
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        </form>
 
         <p class="topbar__date">
           <time id="today" datetime="">&nbsp;</time>
@@ -57,6 +72,10 @@
       </header>
 
       <main class="main" id="main" tabindex="-1">
+        <nav class="crumb" aria-label="현재 위치">
+          <ol class="crumb__list" id="breadcrumb"></ol>
+        </nav>
+
         <section class="masthead" aria-labelledby="masthead-title">
           <p class="eyebrow">PERSONAL WORKSPACE / 2026</p>
           <h1 class="masthead__title" id="masthead-title">
