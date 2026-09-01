@@ -126,7 +126,7 @@ const SITES = [
     placements: ["ai:research"],
   },
   {
-    id: "firefly",
+    id: "adobe-firefly",
     name: "Adobe Firefly",
     url: "https://firefly.adobe.com/",
     desc: "상업적으로 쓰기 안전한 이미지를 만드는 어도비 생성형 AI입니다.",
@@ -217,7 +217,7 @@ const SITES = [
     quick: true,
   },
   {
-    id: "workhub-repo",
+    id: "work-hub-repository",
     name: "Work Hub 저장소",
     url: "https://github.com/yuriwood50-ai/yuriwood-work-hub",
     desc: "이 작업 허브 페이지의 소스 코드를 관리하는 저장소입니다.",
@@ -242,7 +242,7 @@ const SITES = [
     placements: ["dev:deploy"],
   },
   {
-    id: "cloudflare",
+    id: "cloudflare-pages",
     name: "Cloudflare Pages",
     url: "https://dash.cloudflare.com/",
     desc: "도메인과 정적 사이트 배포를 함께 관리하는 콘솔입니다.",
@@ -288,7 +288,7 @@ const SITES = [
     placements: ["design:illust"],
   },
   {
-    id: "sangrim",
+    id: "sanggrim",
     name: "산그림",
     url: "https://www.picturebook-illust.com/",
     desc: "국내 일러스트레이터의 작품과 활동을 찾아보는 커뮤니티입니다.",
@@ -337,7 +337,7 @@ const SITES = [
     placements: ["design:edit", "teach:material"],
   },
   {
-    id: "copyright",
+    id: "copyright-korea",
     name: "한국저작권위원회",
     url: "https://www.copyright.or.kr/",
     desc: "저작권 등록 절차와 상담 정보를 확인하는 공식 기관입니다.",
@@ -353,7 +353,7 @@ const SITES = [
     placements: ["design:ip", "biz:sell"],
   },
   {
-    id: "kawf-artist",
+    id: "artist-career",
     name: "예술인경력정보시스템",
     url: "https://www.kawfartist.kr/",
     desc: "예술인 활동 증명과 경력을 등록하고 관리하는 시스템입니다.",
@@ -463,7 +463,7 @@ const SITES = [
     placements: ["biz:sell"],
   },
   {
-    id: "adobe-contributor",
+    id: "adobe-stock-contributor",
     name: "Adobe Stock Contributor",
     url: "https://contributor.stock.adobe.com/",
     desc: "직접 만든 이미지를 스톡으로 등록하고 수익을 확인합니다.",
@@ -472,7 +472,7 @@ const SITES = [
     quick: true,
   },
   {
-    id: "designhub",
+    id: "miricanvas-designhub",
     name: "미리캔버스 디자인허브",
     url: "https://designhub.miricanvas.com/ko/login",
     desc: "디자인 템플릿을 등록해 판매하는 크리에이터 허브입니다.",
@@ -521,7 +521,7 @@ const SITES = [
     placements: ["biz:sns"],
   },
   {
-    id: "meta-business",
+    id: "meta-business-suite",
     name: "Meta Business Suite",
     url: "https://business.facebook.com/",
     desc: "인스타그램과 페이스북 게시물, 성과를 한곳에서 관리합니다.",
@@ -546,7 +546,7 @@ const SITES = [
     placements: ["biz:brand"],
   },
   {
-    id: "yuriwood-com",
+    id: "yuriwood-portfolio",
     name: "yuriwood.com",
     url: "https://yuriwood.com/",
     desc: "유리나무 브랜드를 소개하는 대표 홈페이지입니다.",
@@ -555,7 +555,7 @@ const SITES = [
     project: true,
   },
   {
-    id: "kstartup",
+    id: "k-startup",
     name: "K-Startup",
     url: "https://www.k-startup.go.kr/",
     desc: "정부 창업 지원사업 공고를 확인하고 신청하는 창구입니다.",
@@ -579,7 +579,7 @@ const SITES = [
     placements: ["biz:startup"],
   },
   {
-    id: "modoo",
+    id: "modoo-startup",
     name: "모두의 창업",
     url: "https://modoo.or.kr/",
     desc: "창업 정보와 교육을 한곳에서 찾아보는 플랫폼입니다.",
@@ -630,6 +630,197 @@ const SITES = [
     desc: "업무 메일을 확인하고 답장하는 메일함입니다.",
     tags: ["메일", "연락", "구글", "지메일", "커뮤니케이션"],
     placements: ["work:mail"],
+  },
+];
+
+/* =========================================================
+   작업 런처 (WORKFLOWS)
+
+   목적별 작업 순서와 필요한 도구를 모아 보여 줍니다.
+   siteIds 는 위 SITES 의 id 를 참조하기만 합니다.
+   사이트 이름·주소·설명을 여기에 다시 적지 않습니다.
+
+     id      : 런처 식별자 (중복 금지)
+     number  : 카드 왼쪽 위에 표시할 두 자리 번호
+     title   : 런처 이름
+     desc    : 한 줄 설명
+     steps   : 작업 단계 (순서 있는 목록)
+     siteIds : 필요한 도구의 SITES id 목록
+   ========================================================= */
+
+const WORKFLOWS = [
+  {
+    id: "class-prep",
+    number: "01",
+    title: "수업 준비",
+    desc: "수업 기획부터 자료 제작과 일정 관리까지",
+    steps: [
+      "수업 주제와 목표 정하기",
+      "수업안 작성하기",
+      "슬라이드와 실습 자료 만들기",
+      "수업 파일 공유하기",
+      "일정과 수업 링크 확인하기",
+    ],
+    siteIds: [
+      "chatgpt",
+      "claude",
+      "google-docs",
+      "google-slides",
+      "canva",
+      "miricanvas",
+      "procreate",
+      "google-drive",
+      "google-calendar",
+      "zoom",
+      "youtube",
+    ],
+  },
+  {
+    id: "ai-stock",
+    number: "02",
+    title: "AI 스톡 제작",
+    desc: "추천 주제 조사부터 이미지 등록과 판매 기록까지",
+    steps: [
+      "추천 주제 확인하기",
+      "판매 콘텐츠 조사하기",
+      "이미지 프롬프트 작성하기",
+      "이미지 생성하고 검수하기",
+      "스톡 플랫폼에 등록하기",
+      "등록 내역 기록하기",
+    ],
+    siteIds: [
+      "designhub-guide",
+      "adobe-stock",
+      "chatgpt",
+      "adobe-firefly",
+      "adobe-stock-contributor",
+      "miricanvas-designhub",
+      "google-sheets",
+    ],
+  },
+  {
+    id: "sns-publish",
+    number: "03",
+    title: "SNS · 웹툰 발행",
+    desc: "콘텐츠 기획부터 이미지 제작과 예약 게시까지",
+    steps: [
+      "게시할 소재 정하기",
+      "글과 대사 작성하기",
+      "이미지와 카드뉴스 제작하기",
+      "영상이 필요하면 편집하기",
+      "SNS에 게시하거나 예약하기",
+    ],
+    siteIds: [
+      "chatgpt",
+      "procreate",
+      "canva",
+      "miricanvas",
+      "capcut",
+      "instagram",
+      "threads",
+      "meta-business-suite",
+      "youtube-studio",
+    ],
+  },
+  {
+    id: "app-update",
+    number: "04",
+    title: "앱 · 웹 업데이트",
+    desc: "코드 수정부터 GitHub 저장과 배포 확인까지",
+    steps: [
+      "수정 내용 정리하기",
+      "AI 코딩 도구로 코드 수정하기",
+      "로컬 화면과 기능 검사하기",
+      "Git 커밋 만들기",
+      "GitHub에 Push하기",
+      "배포 페이지 확인하기",
+    ],
+    siteIds: [
+      "claude",
+      "claude-code-docs",
+      "codex-docs",
+      "github",
+      "replit",
+      "lovable",
+      "streamlit",
+      "netlify",
+      "vercel",
+      "cloudflare-pages",
+      "work-hub-repository",
+      "habit-tracker",
+    ],
+  },
+  {
+    id: "ebook-product",
+    number: "05",
+    title: "전자책 · 상품 관리",
+    desc: "원고와 상품 제작부터 판매 등록과 매출 기록까지",
+    steps: [
+      "상품 내용 기획하기",
+      "원고와 제공 파일 제작하기",
+      "표지와 상세페이지 만들기",
+      "판매 플랫폼에 등록하기",
+      "판매와 매출 기록하기",
+    ],
+    siteIds: [
+      "chatgpt",
+      "claude",
+      "google-docs",
+      "canva",
+      "google-drive",
+      "kmong",
+      "bookk",
+      "ctee",
+      "google-sheets",
+    ],
+  },
+  {
+    id: "portfolio",
+    number: "06",
+    title: "포트폴리오 관리",
+    desc: "작품 선별부터 포트폴리오와 창작 경력 관리까지",
+    steps: [
+      "등록할 작품 선별하기",
+      "이미지와 작품 정보 정리하기",
+      "포트폴리오 사이트에 등록하기",
+      "저작권과 활동 경력 관리하기",
+    ],
+    siteIds: [
+      "pinterest",
+      "behance",
+      "sanggrim",
+      "wix",
+      "yuriwood-portfolio",
+      "google-drive",
+      "copyright-korea",
+      "artist-career",
+      "kakao-emoticon",
+    ],
+  },
+  {
+    id: "grant-apply",
+    number: "07",
+    title: "지원사업 신청",
+    desc: "공고 검색부터 지원서 제출과 마감 관리까지",
+    steps: [
+      "새로운 공고 검색하기",
+      "신청 자격과 마감 확인하기",
+      "지원서 작성하기",
+      "제출 서류 준비하기",
+      "신청하고 결과 일정을 등록하기",
+    ],
+    siteIds: [
+      "k-startup",
+      "bizinfo",
+      "gcon",
+      "modoo-startup",
+      "ict-innovation",
+      "chatgpt",
+      "claude",
+      "google-docs",
+      "google-drive",
+      "google-calendar",
+    ],
   },
 ];
 
@@ -699,6 +890,28 @@ const sitesOfCategory = (categoryId) =>
 const quickSites = () => SITES.filter((site) => site.quick);
 const projectSites = () => SITES.filter((site) => site.project);
 
+const findSite = (siteId) => SITES.find((item) => item.id === siteId);
+const findWorkflow = (id) => WORKFLOWS.find((flow) => flow.id === id);
+
+/**
+ * 런처가 참조하는 도구 목록.
+ * SITES 에 없는 id 는 조용히 무시하지 않고 콘솔에 오류로 알린다.
+ */
+function sitesOfWorkflow(workflow) {
+  const tools = [];
+  workflow.siteIds.forEach((siteId) => {
+    const site = findSite(siteId);
+    if (!site) {
+      console.error(
+        `[작업 런처] "${workflow.id}"가 SITES에 없는 사이트 id를 참조합니다: "${siteId}"`
+      );
+      return;
+    }
+    tools.push(site);
+  });
+  return tools;
+}
+
 /** 한 사이트가 특정 1차 카테고리 안에서 속한 2차 카테고리 이름들 */
 const subLabelsInCategory = (site, categoryId) =>
   site.placements
@@ -759,6 +972,7 @@ const state = {
   view: DEFAULT_VIEW, // "all" | "quick" | "project" | 1차ID | "1차ID:2차ID"
   query: "", // 검색어 (비어 있지 않으면 검색 결과 화면)
   openGroup: DASHBOARD.id, // 아코디언으로 펼쳐진 상위 메뉴 (한 번에 하나)
+  launcher: null, // 펼쳐진 작업 런처 id (한 번에 하나)
 };
 
 const isSearching = () => state.query.trim().length > 0;
@@ -891,6 +1105,7 @@ function onTopClick(groupId, viewId) {
 function selectView(viewId) {
   state.view = viewId;
   state.openGroup = groupOfView(viewId);
+  state.launcher = null; // 다른 메뉴로 이동하면 런처 패널을 닫는다
   if (isSearching()) clearSearch({ focusInput: false, render: false });
   syncNav();
   renderContent();
@@ -1062,9 +1277,175 @@ function renderContent() {
   }
 
   container.replaceChildren(fragment);
+  renderLauncher();
   renderBreadcrumb();
   /* 한 사이트가 여러 카테고리에 배치되면 카드가 여러 번 보이므로 실제 카드 수도 함께 센다 */
   renderViewMeta(container.querySelectorAll(".site").length);
+}
+
+/* ---------- 작업 런처 ---------- */
+
+const LAUNCHER_PANEL_ID = "launcher-detail";
+
+/** 런처는 검색 중이 아닌 '전체 사이트' 화면에서만 보여 준다 */
+const launcherVisible = () => state.view === "all" && !isSearching();
+
+function buildLauncherCard(flow) {
+  const button = el("button", "lcard");
+  button.type = "button";
+  button.id = `lcard-${flow.id}`;
+  button.dataset.flow = flow.id;
+  button.setAttribute("aria-controls", LAUNCHER_PANEL_ID);
+  button.setAttribute("aria-expanded", "false");
+
+  button.appendChild(el("span", "lcard__num", flow.number));
+  button.appendChild(el("span", "lcard__title", flow.title));
+  button.appendChild(el("span", "lcard__desc", flow.desc));
+  button.appendChild(
+    el("span", "lcard__meta", `단계 ${flow.steps.length} · 도구 ${flow.siteIds.length}`)
+  );
+
+  button.addEventListener("click", () => toggleLauncher(flow.id));
+  return button;
+}
+
+function buildToolLink(site) {
+  const link = el("a", "tool");
+  setExternal(link, site, "작업 런처");
+  link.appendChild(el("span", "tool__name", site.name));
+  link.appendChild(el("span", "tool__desc", site.desc));
+
+  const go = el("span", "tool__go");
+  go.appendChild(el("span", null, "열기"));
+  go.appendChild(arrow());
+  link.appendChild(go);
+
+  return link;
+}
+
+/** 선택된 런처의 상세 패널 내용을 채운다 */
+function fillLauncherPanel(flow) {
+  const panel = document.getElementById(LAUNCHER_PANEL_ID);
+  if (!panel) return;
+
+  const fragment = document.createDocumentFragment();
+
+  const head = el("div", "lpanel__head");
+  const heading = el("div", "lpanel__heading");
+  heading.appendChild(el("p", "lpanel__num", flow.number));
+
+  const title = el("h3", "lpanel__title", flow.title);
+  title.id = "launcher-detail-title";
+  heading.appendChild(title);
+  heading.appendChild(el("p", "lpanel__desc", flow.desc));
+  head.appendChild(heading);
+
+  const close = el("button", "lpanel__close");
+  close.type = "button";
+  close.setAttribute("aria-label", `${flow.title} 런처 닫기`);
+  close.appendChild(el("span", null, "닫기"));
+  close.addEventListener("click", () => closeLauncher({ restoreFocus: true }));
+  head.appendChild(close);
+
+  fragment.appendChild(head);
+
+  const body = el("div", "lpanel__body");
+
+  /* 작업 단계 */
+  const stepsSection = el("section", "lpanel__section");
+  stepsSection.setAttribute("aria-labelledby", "launcher-steps-title");
+  const stepsTitle = el("h4", "lpanel__subtitle", "작업 단계");
+  stepsTitle.id = "launcher-steps-title";
+  stepsSection.appendChild(stepsTitle);
+
+  const stepList = el("ol", "steps");
+  flow.steps.forEach((text, index) => {
+    const item = el("li", "steps__item");
+    item.appendChild(el("span", "steps__num", pad2(index + 1)));
+    item.appendChild(el("span", "steps__text", text));
+    stepList.appendChild(item);
+  });
+  stepsSection.appendChild(stepList);
+  body.appendChild(stepsSection);
+
+  /* 필요한 도구 */
+  const tools = sitesOfWorkflow(flow);
+  const toolsSection = el("section", "lpanel__section");
+  toolsSection.setAttribute("aria-labelledby", "launcher-tools-title");
+  const toolsTitle = el("h4", "lpanel__subtitle", `필요한 도구 ${tools.length}개`);
+  toolsTitle.id = "launcher-tools-title";
+  toolsSection.appendChild(toolsTitle);
+
+  const toolGrid = el("div", "tools");
+  tools.forEach((site) => toolGrid.appendChild(buildToolLink(site)));
+  toolsSection.appendChild(toolGrid);
+  body.appendChild(toolsSection);
+
+  fragment.appendChild(body);
+  panel.replaceChildren(fragment);
+  panel.setAttribute("aria-labelledby", "launcher-detail-title");
+}
+
+/** 런처 영역 전체(표시 여부·카드 상태·패널)를 상태값과 동기화 */
+function renderLauncher() {
+  const section = document.getElementById("launcher");
+  const grid = document.getElementById("launcher-grid");
+  const panel = document.getElementById(LAUNCHER_PANEL_ID);
+  if (!section || !grid || !panel) return;
+
+  if (!grid.children.length) {
+    const fragment = document.createDocumentFragment();
+    WORKFLOWS.forEach((flow) => fragment.appendChild(buildLauncherCard(flow)));
+    grid.replaceChildren(fragment);
+  }
+
+  section.hidden = !launcherVisible();
+
+  const active = launcherVisible() ? state.launcher : null;
+
+  grid.querySelectorAll(".lcard").forEach((card) => {
+    const isActive = card.dataset.flow === active;
+    card.classList.toggle("is-active", isActive);
+    card.setAttribute("aria-expanded", String(isActive));
+  });
+
+  if (!active) {
+    panel.hidden = true;
+    panel.replaceChildren();
+    panel.removeAttribute("aria-labelledby");
+    return;
+  }
+
+  const flow = findWorkflow(active);
+  if (!flow) {
+    panel.hidden = true;
+    return;
+  }
+
+  fillLauncherPanel(flow);
+  panel.hidden = false;
+}
+
+function toggleLauncher(flowId) {
+  state.launcher = state.launcher === flowId ? null : flowId;
+  renderLauncher();
+
+  /* 새로 연 패널로 포커스를 옮겨 키보드 사용자가 바로 내용을 읽게 한다 */
+  if (state.launcher) {
+    const panel = document.getElementById(LAUNCHER_PANEL_ID);
+    if (panel) panel.focus();
+  }
+}
+
+function closeLauncher({ restoreFocus = false } = {}) {
+  if (!state.launcher) return;
+  const previous = state.launcher;
+  state.launcher = null;
+  renderLauncher();
+  if (restoreFocus) {
+    const card = document.getElementById(`lcard-${previous}`);
+    if (card) card.focus();
+  }
 }
 
 function renderBreadcrumb() {
@@ -1142,6 +1523,7 @@ function syncSearchUI() {
 
 function applyQuery(value) {
   state.query = value;
+  if (isSearching()) state.launcher = null; // 검색을 시작하면 런처 패널을 닫는다
   syncSearchUI();
   syncNav();
   renderContent();
@@ -1229,7 +1611,7 @@ function setupDrawer() {
   });
 }
 
-/* Escape: 드로어가 열려 있으면 닫고, 아니면 검색을 초기화 */
+/* Escape 우선순위: 드로어 닫기 → 검색 초기화 → 런처 패널 닫기 */
 function setupGlobalKeys() {
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
@@ -1237,7 +1619,11 @@ function setupGlobalKeys() {
       closeDrawer();
       return;
     }
-    if (isSearching()) clearSearch();
+    if (isSearching()) {
+      clearSearch();
+      return;
+    }
+    if (state.launcher) closeLauncher({ restoreFocus: true });
   });
 }
 
