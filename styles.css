@@ -1,31 +1,33 @@
 /* =========================================================
    유리나무 작업 허브 · YURIWOOD WORK HUB
    Swiss-style minimalist editorial dashboard UI
-   색상 시스템: Modern Editorial Blue (기준 문서: DESIGN.md)
+   색상 시스템: Neutral Editorial Stone (기준 문서: DESIGN.md)
    ========================================================= */
 
 :root {
-  /* ----- 확정 팔레트 (Modern Editorial Blue) ----- */
-  --color-bg: #f7f8fa;
-  --color-surface: #ffffff;
+  /* ----- 확정 팔레트 (Neutral Editorial Stone) ----- */
+  --color-bg: #f4f4f2; /* 전체 배경 */
+  --color-surface: #ffffff; /* 카드·사이드바·검색창 */
 
-  --color-ink: #1a273a;
-  --color-ink-soft: #3e4a62;
+  --color-ink: #242a32; /* 제목·기본 글자 */
+  --color-ink-soft: #6c7378; /* 보조 글자 */
 
-  --color-primary: #446592;
-  --color-primary-hover: #38557c;
-  --color-primary-soft: #ace5f6;
+  --color-primary: #5c6b73; /* 링크·로고·호버 포인트 */
+  --color-primary-hover: #242a32; /* 포인트 위 호버 (팔레트의 차콜) */
+  --color-selected: #e7e9e7; /* 선택 메뉴 배경 */
+  --color-launcher: #ece7df; /* 런처 전체 배경 (웜 스톤) */
+  --color-launcher-num: #f4ece7; /* 런처 번호 배경 */
 
-  --color-accent: #c24d2c;
-  --color-border: #d9d9d7;
+  --color-accent: #b45c43; /* 코럴 포인트 (화면의 5% 이하) */
+  --color-border: #d8d5cf; /* 테두리·구분선 */
 
-  --shadow-soft: 0 8px 24px rgba(26, 39, 58, 0.08);
-  --shadow-hover: 0 12px 30px rgba(26, 39, 58, 0.12);
+  --shadow-soft: 0 8px 24px rgba(36, 42, 50, 0.08);
+  --shadow-hover: 0 12px 30px rgba(36, 42, 50, 0.12);
 
-  /* ----- 연한 블루를 낮은 농도로 쓰기 위한 파생값 ----- */
-  --tint-soft: rgba(172, 229, 246, 0.3); /* 선택 메뉴·선택 카드 배경 */
-  --tint: rgba(172, 229, 246, 0.55); /* 포커스 링·정보 배지 */
-  --hover-neutral: rgba(26, 39, 58, 0.045); /* 메뉴 호버 (중성) */
+  /* ----- 팔레트 색에서 파생한 투명도 값 ----- */
+  --focus-ring: rgba(92, 107, 115, 0.22); /* 검색창 포커스 링 */
+  --hover-neutral: rgba(36, 42, 50, 0.05); /* 메뉴 호버 (중성) */
+  --scrim: rgba(36, 42, 50, 0.42); /* 모바일 드로어 배경 */
 
   /* ----- 기존 변수 이름 연결 (값은 위 팔레트 기준) ----- */
   --bg: var(--color-bg);
@@ -33,8 +35,6 @@
   --ink: var(--color-ink);
   --ink-soft: var(--color-ink-soft);
   --line: var(--color-border);
-  --blue: var(--color-primary);
-  --blue-soft: var(--tint-soft);
 
   /* 흰 사이드바 파생값 */
   --sidebar-bg: var(--color-surface);
@@ -43,7 +43,6 @@
   --sidebar-ink-soft: var(--color-ink-soft);
   --sidebar-line: var(--color-border);
   --sidebar-hover: var(--hover-neutral);
-  --scrim: rgba(26, 39, 58, 0.42);
 
   --sidebar-w: 288px;
   --radius: 14px;
@@ -110,7 +109,7 @@ button {
 /* ---------- 포커스 / 접근성 ---------- */
 
 :focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -198,13 +197,13 @@ button {
   color: var(--color-ink);
 }
 
-/* 영문 보조 제목은 기본 블루 */
+/* 영문 보조 제목은 보조 글자색 */
 .brand__en {
   margin-top: 5px;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.22em;
-  color: var(--color-primary);
+  color: var(--color-ink-soft);
 }
 
 /* ---------- 메뉴 ---------- */
@@ -264,7 +263,7 @@ button {
 
 /* 선택 상태는 색 하나로만 알리지 않는다: 연한 블루 배경 + 굵기 + 왼쪽 코럴 표시 */
 .nav__top.is-active {
-  background: var(--tint-soft);
+  background: var(--color-selected);
   color: var(--color-ink);
 }
 
@@ -334,7 +333,7 @@ button {
 .nav__item.is-active:hover {
   color: var(--color-ink);
   font-weight: 600;
-  background: var(--tint-soft);
+  background: var(--color-selected);
 }
 
 .nav__item.is-active::before {
@@ -439,10 +438,10 @@ button {
   transition: border-color 0.15s ease;
 }
 
-/* 포커스 테두리는 기본 블루, 포커스 링은 연한 블루 */
+/* 포커스 테두리와 포커스 링 모두 포인트 슬레이트 */
 .search__field:focus-within {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--tint);
+  box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .search__icon {
@@ -501,7 +500,7 @@ button {
 }
 
 .search__clear:hover {
-  background: var(--tint-soft);
+  background: var(--color-selected);
   color: var(--color-ink);
 }
 
@@ -584,7 +583,7 @@ button {
 }
 
 .masthead__view {
-  color: var(--blue);
+  color: var(--color-primary);
   font-weight: 500;
   letter-spacing: -0.01em;
 }
@@ -602,12 +601,12 @@ button {
   --launcher-radius: 20px;
   --launcher-item-radius: 14px;
   --launcher-item-pad: 13px;
-  /* 연한 코발트 패널: 흰 실행 버튼과 대비되도록 지면보다 진하게 */
-  --launcher-panel: var(--tint-soft);
-  /* 아이콘 박스는 아주 연하게. 코럴 번호가 AA 대비(4.56:1)를 지키도록 농도를 낮춘다 */
-  --launcher-icon-bg: rgba(172, 229, 246, 0.15);
-  --launcher-icon-line: rgba(68, 101, 146, 0.16);
-  --launcher-item-shadow: 0 3px 10px rgba(26, 39, 58, 0.07);
+  /* 웜 스톤 패널: 흰 실행 버튼과 구분되도록 지면보다 진하게 */
+  --launcher-panel: var(--color-launcher);
+  /* 번호 배경은 연한 웜 톤, 번호 글자는 코럴 */
+  --launcher-icon-bg: var(--color-launcher-num);
+  --launcher-icon-line: var(--color-border);
+  --launcher-item-shadow: 0 3px 10px rgba(36, 42, 50, 0.07);
 
   /* 아래 일반 카드 영역과는 .block 의 padding-top(34~56px)으로 분리된다 */
   margin-top: clamp(26px, 3vw, 36px);
@@ -838,7 +837,7 @@ button {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--color-primary);
+  color: var(--color-ink-soft);
 }
 
 .steps__text {

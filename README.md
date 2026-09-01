@@ -18,19 +18,24 @@ HTML · CSS · 순수 JavaScript로만 만든 정적 페이지이며, 프레임�
 | 자주 쓰는 사이트 | 14개 |
 | 내 프로젝트 | 4개 |
 
-## 색상 시스템 (Modern Editorial Blue)
+## 색상 시스템 (Neutral Editorial Stone)
+
+중성 회색과 스톤 컬러를 중심으로 한 에디토리얼 워크스페이스 팔레트입니다. 아래 10색 외의 색은 쓰지 않습니다.
 
 | 용도 | 값 | 변수 |
 | --- | --- | --- |
-| 페이지 배경 | `#F7F8FA` | `--color-bg` |
-| 카드·패널 | `#FFFFFF` | `--color-surface` |
-| 큰 제목·핵심 텍스트 | `#1A273A` | `--color-ink` |
-| 본문·보조 텍스트 | `#3E4A62` | `--color-ink-soft` |
-| 기본 블루 (버튼·선택·링크·포커스) | `#446592` | `--color-primary` |
-| 버튼 호버 | `#38557C` | `--color-primary-hover` |
-| 연한 블루 (선택 배경·포커스 링·배지) | `#ACE5F6` | `--color-primary-soft` |
-| 코럴 포인트 (런처 번호·선택 표시) | `#C24D2C` | `--color-accent` |
-| 구분선·테두리 | `#D9D9D7` | `--color-border` |
+| 전체 배경 | `#F4F4F2` | `--color-bg` |
+| 카드·사이드바·검색창 | `#FFFFFF` | `--color-surface` |
+| 제목·기본 글자 | `#242A32` | `--color-ink` |
+| 보조 글자 | `#6C7378` | `--color-ink-soft` |
+| 링크·로고·호버 포인트 | `#5C6B73` | `--color-primary` |
+| 선택 메뉴 배경 | `#E7E9E7` | `--color-selected` |
+| 런처 전체 배경 | `#ECE7DF` | `--color-launcher` |
+| 런처 번호 배경 | `#F4ECE7` | `--color-launcher-num` |
+| 코럴 포인트 (런처 번호·선택 표시) | `#B45C43` | `--color-accent` |
+| 테두리·구분선 | `#D8D5CF` | `--color-border` |
+
+색 균형은 중성 약 85% · 스톤/슬레이트 약 10% · 코럴 5% 이하를 유지합니다.
 
 색상은 모두 `styles.css`의 `:root` 변수로만 관리합니다. 자세한 사용 규칙과 금지 사항은 `DESIGN.md`를 참고합니다.
 
