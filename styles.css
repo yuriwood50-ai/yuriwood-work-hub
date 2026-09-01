@@ -595,105 +595,135 @@ button {
 
 /* ---------- 작업 런처 ---------- */
 
+/* 런처 전용 값. 일반 카드(.site / .block)에는 영향을 주지 않는다. */
 .launcher {
-  padding-top: clamp(30px, 3.8vw, 46px);
+  --launcher-pad: 24px;
+  --launcher-gap: 12px;
+  --launcher-radius: 20px;
+  --launcher-item-radius: 14px;
+  --launcher-item-pad: 13px;
+  /* 연한 코발트 패널: 흰 실행 버튼과 대비되도록 지면보다 진하게 */
+  --launcher-panel: var(--tint-soft);
+  /* 아이콘 박스는 아주 연하게. 코럴 번호가 AA 대비(4.56:1)를 지키도록 농도를 낮춘다 */
+  --launcher-icon-bg: rgba(172, 229, 246, 0.15);
+  --launcher-icon-line: rgba(68, 101, 146, 0.16);
+  --launcher-item-shadow: 0 3px 10px rgba(26, 39, 58, 0.07);
+
+  /* 아래 일반 카드 영역과는 .block 의 padding-top(34~56px)으로 분리된다 */
+  margin-top: clamp(26px, 3vw, 36px);
+  padding: var(--launcher-pad);
+  background: var(--launcher-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--launcher-radius);
 }
 
 .launcher[hidden] {
   display: none;
 }
 
-.launcher__head {
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--color-border);
-}
-
+/* 일반 카드 제목보다 작은 도구 섹션 라벨 */
 .launcher__title {
-  font-size: clamp(19px, 1.7vw, 23px);
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.1em;
   color: var(--color-ink);
 }
 
 .launcher__desc {
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--color-ink-soft);
 }
 
+/* 촘촘한 퀵 런처 그리드 */
 .launcher__grid {
-  margin-top: clamp(18px, 2.2vw, 26px);
+  margin-top: 14px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(14px, 1.6vw, 20px);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--launcher-gap);
 }
 
-/* 런처 카드 전체가 버튼 */
+/* 런처 항목: 큰 콘텐츠 카드가 아니라 낮고 단정한 실행 버튼 */
 .lcard {
   position: relative;
   min-width: 0;
-  min-height: 148px;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
-  padding: clamp(18px, 1.8vw, 24px);
+  gap: 10px;
+  padding: var(--launcher-item-pad);
   text-align: left;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  border-radius: var(--launcher-item-radius);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* 번호를 담는 작은 아이콘 박스 (실행 도구 인상) */
+.lcard__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--launcher-icon-bg);
+  box-shadow: inset 0 0 0 1px var(--launcher-icon-line);
+  border-radius: 9px;
 }
 
 .lcard__num {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--color-accent);
 }
 
+.lcard__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .lcard__title {
-  margin-top: 4px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
 }
 
 .lcard__desc {
-  flex: 1 1 auto;
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.45;
   color: var(--color-ink-soft);
 }
 
 .lcard__meta {
-  margin-top: 10px;
-  padding: 3px 9px;
+  margin-top: 2px;
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: var(--color-ink-soft);
-  background: var(--tint);
-  border-radius: 999px;
 }
 
+/* 호버는 테두리 + 2px 이동 + 아주 약한 그림자만 */
 .lcard:hover {
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--launcher-item-shadow);
+  transform: translateY(-2px);
 }
 
-/* 선택 상태는 테두리 굵기 + 연한 블루 배경 + 코럴 표시를 함께 쓴다 */
+/* 선택 상태는 테두리 굵기 + 코럴 표시를 함께 쓴다 */
 .lcard.is-active {
   border-color: var(--color-primary);
   box-shadow: inset 0 0 0 1px var(--color-primary);
-  background: var(--tint-soft);
 }
 
 .lcard.is-active::after {
   content: "";
   position: absolute;
-  left: clamp(18px, 1.8vw, 24px);
-  right: clamp(18px, 1.8vw, 24px);
+  left: var(--launcher-item-pad);
+  right: var(--launcher-item-pad);
   bottom: 0;
   height: 3px;
   border-radius: 2px 2px 0 0;
@@ -1046,33 +1076,17 @@ button {
   display: none;
 }
 
-/* ---------- 런처 반응형: 모바일 1열 → 태블릿 2열 → 데스크톱 3열 → 넓은 화면 4열 ---------- */
+/* ---------- 런처 상세 패널 안 도구 목록 반응형 ---------- */
 
 @media (min-width: 620px) {
-  .launcher__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .tools {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1000px) {
-  .launcher__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1100px) {
   .tools {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1400px) {
-  .launcher__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -1164,8 +1178,14 @@ button {
     min-height: 0;
   }
 
-  .lcard {
-    min-height: 0;
+  /* 모바일 런처: 2열 고정 + 좁은 내부 여백 */
+  .launcher {
+    --launcher-pad: 18px;
+    --launcher-gap: 10px;
+  }
+
+  .launcher__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   /* 모바일에서는 단계 목록을 세로 한 줄씩 */
@@ -1180,6 +1200,14 @@ button {
 
   .lpanel__close {
     align-self: flex-start;
+  }
+}
+
+/* 아주 좁은 화면: 2열을 지키기 위해 아이콘을 이름 위로 올린다 */
+@media (max-width: 430px) {
+  .lcard {
+    flex-direction: column;
+    gap: 8px;
   }
 }
 

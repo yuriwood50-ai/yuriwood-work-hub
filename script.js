@@ -1298,12 +1298,18 @@ function buildLauncherCard(flow) {
   button.setAttribute("aria-controls", LAUNCHER_PANEL_ID);
   button.setAttribute("aria-expanded", "false");
 
-  button.appendChild(el("span", "lcard__num", flow.number));
-  button.appendChild(el("span", "lcard__title", flow.title));
-  button.appendChild(el("span", "lcard__desc", flow.desc));
-  button.appendChild(
+  /* 번호는 작은 아이콘 박스 안에 넣어 실행 버튼처럼 보이게 한다 */
+  const icon = el("span", "lcard__icon");
+  icon.appendChild(el("span", "lcard__num", flow.number));
+  button.appendChild(icon);
+
+  const text = el("span", "lcard__text");
+  text.appendChild(el("span", "lcard__title", flow.title));
+  text.appendChild(el("span", "lcard__desc", flow.desc));
+  text.appendChild(
     el("span", "lcard__meta", `단계 ${flow.steps.length} · 도구 ${flow.siteIds.length}`)
   );
+  button.appendChild(text);
 
   button.addEventListener("click", () => toggleLauncher(flow.id));
   return button;
